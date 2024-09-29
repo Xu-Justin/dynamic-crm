@@ -10,7 +10,7 @@ export default function Home() {
     const [animationParent] = useAutoAnimate();
     const [organizations, setOrganizations] = useState<Organization[]>([]);
     const [selectedOrganization, setSelectedOrganization] = useState<Organization | undefined>(undefined);
-    const [columns, setColumns] = useState<(OrganizationField & {checked?: boolean})[]>([]);
+    const [columns, setColumns] = useState<(OrganizationField & { checked?: boolean })[]>([]);
     const [customers, setCustomers] = useState<Customer[]>([]);
 
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function Home() {
                 { organizationId: 2, organizationName: 'Blue Sky Inc.' },
             ]);
             setColumns([
-                { organizationId: 1, fieldId: 1, fieldName: 'Name', fieldType: 'TEXT'},
+                { organizationId: 1, fieldId: 1, fieldName: 'Name', fieldType: 'TEXT' },
                 { organizationId: 1, fieldId: 2, fieldName: 'Email', fieldType: 'EMAIL' },
                 { organizationId: 1, fieldId: 3, fieldName: 'Phone Number', fieldType: 'PHONE_NUMBER' },
                 { organizationId: 1, fieldId: 4, fieldName: 'Date of Birth', fieldType: 'DATE' },
@@ -43,7 +43,7 @@ export default function Home() {
         const checked = event.target.checked;
         const fieldId = Number(event.target.id);
         if (isNaN(fieldId)) return;
-        setColumns(prevColumns => prevColumns.map(column => column.fieldId === fieldId ? {...column, checked: checked} : column));
+        setColumns(prevColumns => prevColumns.map(column => column.fieldId === fieldId ? { ...column, checked: checked } : column));
     }
 
     return (
