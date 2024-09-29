@@ -21,7 +21,7 @@ export interface OrganizationField {
 export interface CustomerField {
     customerId: number;
     fieldId: number;
-    fieldType: FieldType;
     fieldName: string;
+    fieldType: FieldType;
     fieldValue: string;
 }
