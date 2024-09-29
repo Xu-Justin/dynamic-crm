@@ -4,6 +4,12 @@ Dynamic Customer Relationship Management (CRM)
 
 ## Getting Started
 
+### Setting Up Database
+
+```bash
+docker compose up --build
+```
+
 ### Running the Project in Development Mode
 
 1. Navigate to the project directory:

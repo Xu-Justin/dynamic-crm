@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/mysql.Dockerfile
+      args:
+        SCHEMA: schema/
+    container_name: mysql-dynamic-crm
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+      - MYSQL_DATABASE=db
+      - TZ=Asia/Jakarta
+    ports:
+      - 3306:3306
