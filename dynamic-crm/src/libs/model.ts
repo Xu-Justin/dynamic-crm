@@ -1,27 +1,25 @@
+export type FieldVariant = 'text' | 'text-area' | 'number' | 'radio' | 'phone-number';
+
+export interface Value {
+    varchar?: string;
+    text?: string;
+    number?: number;
+    datetime?: Date;
+}
+
+export interface Field {
+    fieldId: number;
+    fieldName: string;
+    fieldVariant: FieldVariant;
+    fieldParams?: string;
+}
+
 export interface Organization {
     organizationId: number;
-    organizationName: string | null;
+    organizationName: string;
 }
-
-export interface Customer {
-    customerId: number;
-    organizationId: number;
-    fields: Record<number, CustomerField>;
-}
-
-export type FieldType = 'TEXT' | 'NUMBER' | 'EMAIL' | 'PHONE_NUMBER' | 'DATE' | 'GENDER';
 
 export interface OrganizationField {
-    organizationId: number;
-    fieldId: number;
-    fieldName: string;
-    fieldType: FieldType;
-}
-
-export interface CustomerField {
-    customerId: number;
-    fieldId: number;
-    fieldName: string;
-    fieldType: FieldType;
-    fieldValue: string;
+    organization: Organization;
+    fields: Field[];
 }
