@@ -30,6 +30,7 @@ export default function NumberInput(props: AbstractInputProps) {
     return (
         <div className={'flex flex-row justify-start items-center gap-2'}>
             <button
+                type={'button'}
                 className={'flex flex-row justify-center items-center size-10 rounded-lg border'}
                 onClick={() => handleChange(currentValue - 1)}
             >
@@ -44,6 +45,7 @@ export default function NumberInput(props: AbstractInputProps) {
                 type={'number'}
             />
             <button
+                type={'button'}
                 className={'flex flex-row justify-center items-center size-10 rounded-lg border'}
                 onClick={() => handleChange(currentValue + 1)}
             >
