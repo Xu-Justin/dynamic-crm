@@ -16,6 +16,7 @@ export default function RadioInput(props: AbstractInputProps) {
             {params?.options && params.options.map(option => (
                 <button
                     key={option.key}
+                    type={'button'}
                     className={`px-6 py-2 rounded-lg border transition-all ${props.value?.varchar === option.key ? 'bg-slate-200' : ''}`}
                     onClick={() => handleChange(option.key)}
                 >
