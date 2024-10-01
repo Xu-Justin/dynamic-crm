@@ -1,4 +1,5 @@
 import { AbstractInputProps } from "@/components/asbtract-input/AbstractInput";
+import { useEffect, useState } from "react";
 
 export interface TextParams {
     placeholder?: string;
@@ -15,9 +16,11 @@ export default function TextInput(props: AbstractInputProps) {
     let currentValue = props.value?.varchar;
     if (currentValue === undefined) currentValue = "";
 
-    if (currentValue !== props.value?.varchar) {
-        handleChange(currentValue);
-    }
+    useEffect(() => {
+        if (currentValue !== props.value?.varchar) {
+            handleChange(currentValue);
+        }
+    });
 
     return (
         <input

@@ -1,5 +1,6 @@
 import { AbstractInputProps } from "@/components/asbtract-input/AbstractInput";
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
+import { useEffect, useState } from "react";
 
 const countryDialCodes: Record<number, string> = {
     62: 'Indonesia',
@@ -34,9 +35,11 @@ export default function PhoneNumberInput(props: AbstractInputProps) {
     let currentPhoneNumber = props.value?.varchar;
     if (currentPhoneNumber === undefined) currentPhoneNumber = "";
 
-    if (currentDialCode !== props.value?.number || currentPhoneNumber !== props.value.varchar) {
-        handleChange(currentDialCode, currentPhoneNumber);
-    }
+    useEffect(() => {
+        if (currentDialCode !== props.value?.number || currentPhoneNumber !== props.value.varchar) {
+            handleChange(currentDialCode, currentPhoneNumber);
+        }
+    });
 
     return (
         <div className={'flex flex-row rounded-lg border'}>

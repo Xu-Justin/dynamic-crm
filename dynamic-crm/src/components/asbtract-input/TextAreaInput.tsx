@@ -1,4 +1,5 @@
 import { AbstractInputProps } from "@/components/asbtract-input/AbstractInput";
+import { useEffect, useState } from "react";
 
 export interface TextAreaParams {
     placeholder?: string;
@@ -15,9 +16,11 @@ export default function TextAreaInput(props: AbstractInputProps) {
     let currentValue = props.value?.text;
     if (currentValue === undefined) currentValue = "";
 
-    if (currentValue !== props.value?.text) {
-        handleChange(currentValue);
-    }
+    useEffect(() => {
+        if (currentValue !== props.value?.text) {
+            handleChange(currentValue);
+        }
+    });
 
     return (
         <textarea

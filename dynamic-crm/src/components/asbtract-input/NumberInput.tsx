@@ -1,4 +1,5 @@
 import { AbstractInputProps } from "@/components/asbtract-input/AbstractInput";
+import { useEffect } from "react";
 
 export interface NumberParams {
     minValue?: number;
@@ -23,9 +24,11 @@ export default function NumberInput(props: AbstractInputProps) {
     if (currentValue === undefined) currentValue = params?.maxValue;
     if (currentValue === undefined) currentValue = 0;
 
-    if (currentValue !== props.value?.number) {
-        handleChange(currentValue);
-    }
+    useEffect(() => {
+        if (currentValue !== props.value?.number) {
+            handleChange(currentValue);
+        }
+    });
 
     return (
         <div className={'flex flex-row justify-start items-center gap-2'}>
